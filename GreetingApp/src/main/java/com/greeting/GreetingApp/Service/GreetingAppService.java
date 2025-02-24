@@ -13,6 +13,11 @@ public class GreetingAppService {
         this.greetingRepository = greetingRepository;
     }
 
+    // UC5 task
+    public Greeting getGreetingById(Long id) {
+        return greetingRepository.findById(id).orElse(null);
+    }
+
     // Uc4 task
     public Greeting saveGreeting(String message) {
         Greeting greeting = new Greeting(message);

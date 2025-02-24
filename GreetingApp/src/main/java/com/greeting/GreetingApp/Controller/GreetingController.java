@@ -12,7 +12,14 @@ public class GreetingController {
 	GreetingController(GreetingAppService greetingAppService) {
 		this.greetingAppService = greetingAppService;
 	}
-	// Uc4 task
+
+	// UC5 task
+	@GetMapping("/{id}")
+	public Greeting getGreetingById(@PathVariable Long id) {
+		return greetingAppService.getGreetingById(id);
+	}
+
+	// UC4 task
 	@PostMapping("/save")
 	public Greeting saveGreeting(@RequestParam String message) {
 		return greetingAppService.saveGreeting(message);
