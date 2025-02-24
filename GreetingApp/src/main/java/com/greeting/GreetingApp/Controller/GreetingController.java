@@ -2,6 +2,7 @@ package com.greeting.GreetingApp.Controller;
 
 import com.greeting.GreetingApp.Model.Greeting;
 import com.greeting.GreetingApp.Service.GreetingAppService;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -13,6 +14,14 @@ public class GreetingController {
 
 	GreetingController(GreetingAppService greetingAppService) {
 		this.greetingAppService = greetingAppService;
+	}
+
+	// UC8 task
+	//UC_08
+	@DeleteMapping("/delete/{id}")
+	public ResponseEntity<String> deleteGreeting(@PathVariable Long id) {
+		greetingAppService.deleteGreeting(id);
+		return ResponseEntity.ok("Greeting deleted successfully.");
 	}
 
 	// UC7 task

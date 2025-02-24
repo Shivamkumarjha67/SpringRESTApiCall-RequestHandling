@@ -15,6 +15,11 @@ public class GreetingAppService {
         this.greetingRepository = greetingRepository;
     }
 
+    // UC8 task
+    public void deleteGreeting(Long id) {
+        greetingRepository.deleteById(id);
+    }
+
     // UC7 task
     public Greeting updateGreeting(Long id, String message) {
         return greetingRepository.findById(id).map(greeting -> {
