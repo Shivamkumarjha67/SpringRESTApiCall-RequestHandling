@@ -1,10 +1,8 @@
 package com.greeting.GreetingApp.Controller;
 
+import com.greeting.GreetingApp.Model.Greeting;
 import com.greeting.GreetingApp.Service.GreetingAppService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/greeting")
@@ -13,6 +11,11 @@ public class GreetingController {
 
 	GreetingController(GreetingAppService greetingAppService) {
 		this.greetingAppService = greetingAppService;
+	}
+	// Uc4 task
+	@PostMapping("/save")
+	public Greeting saveGreeting(@RequestParam String message) {
+		return greetingAppService.saveGreeting(message);
 	}
 
 	// UC3 task
