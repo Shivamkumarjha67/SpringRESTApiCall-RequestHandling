@@ -4,6 +4,8 @@ import com.greeting.GreetingApp.Model.Greeting;
 import com.greeting.GreetingApp.Service.GreetingAppService;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/greeting")
 public class GreetingController {
@@ -11,6 +13,13 @@ public class GreetingController {
 
 	GreetingController(GreetingAppService greetingAppService) {
 		this.greetingAppService = greetingAppService;
+	}
+
+	// UC6 task
+	@GetMapping("/allMessages")
+	public List<Greeting> getAllGreetings() {
+		//Call Service method
+		return greetingAppService.getAllGreetings();
 	}
 
 	// UC5 task

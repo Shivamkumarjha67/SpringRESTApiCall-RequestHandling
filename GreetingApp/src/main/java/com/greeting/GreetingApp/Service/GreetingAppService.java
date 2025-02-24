@@ -4,6 +4,8 @@ import com.greeting.GreetingApp.Model.Greeting;
 import com.greeting.GreetingApp.Repository.GreetingRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class GreetingAppService {
     // DI
@@ -11,6 +13,13 @@ public class GreetingAppService {
     // Using Constructor injection
     GreetingAppService(GreetingRepository greetingRepository) {
         this.greetingRepository = greetingRepository;
+    }
+
+    // UC6 task
+    public List<Greeting> getAllGreetings() {
+        List<Greeting> greetings = greetingRepository.findAll();
+        System.out.println("Fetched Greetings: " + greetings);
+        return greetings;
     }
 
     // UC5 task
