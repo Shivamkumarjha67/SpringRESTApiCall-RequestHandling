@@ -15,6 +15,14 @@ public class GreetingAppService {
         this.greetingRepository = greetingRepository;
     }
 
+    // UC7 task
+    public Greeting updateGreeting(Long id, String message) {
+        return greetingRepository.findById(id).map(greeting -> {
+                    greeting.setMessage(message);
+                    return greetingRepository.save(greeting);
+                    }).orElse(null);
+    }
+
     // UC6 task
     public List<Greeting> getAllGreetings() {
         List<Greeting> greetings = greetingRepository.findAll();

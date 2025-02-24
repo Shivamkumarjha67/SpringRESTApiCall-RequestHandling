@@ -15,6 +15,12 @@ public class GreetingController {
 		this.greetingAppService = greetingAppService;
 	}
 
+	// UC7 task
+	@PutMapping("/update/{id}")
+	public Greeting updateGreetingMessage(@PathVariable Long id, @RequestParam String message) {
+		return greetingAppService.updateGreeting(id, message);
+	}
+
 	// UC6 task
 	@GetMapping("/allMessages")
 	public List<Greeting> getAllGreetings() {
